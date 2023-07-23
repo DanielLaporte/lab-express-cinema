@@ -6,9 +6,10 @@ const Movie = require('../models/Movie.model');
 router.get('/', (req, res, next) => res.render('index'));
 
 router.get('/movies', (req, res, next) => {
+  
   Movie.find()
     .then((movies) => {
-      res.render('movies', { movies, isMoviesPage: true });
+      res.render('movies', {movies});
     })
     .catch((err) => {
       res.send(`Error in /movies: ${err}`);
@@ -16,9 +17,10 @@ router.get('/movies', (req, res, next) => {
 });
 
 router.get('/movies/:id', (req, res, next) => {
-  Movie.findById(req.params.id)
+  const movieId = req.params.id;
+  Movie.findById(movieId)
     .then((movie) => {
-      res.render('movie-details', { movie, isIdPage: true });
+      res.render('movie-details', movie);
     })
     .catch((err) => next(err));
 });

@@ -1,0 +1,25 @@
+<a class="goback" href="/">Go back</a>
+<div class="container-id">
+  <div class="img">
+   <img src="{{image}}" alt="{{title}} Poster">
+  </div>
+  <div class="text">
+    <h5>{{title}}</h5>
+    <p>Director: {{director}}</p>
+    <ul>Stars:
+      {{#each stars}}
+      <li>
+        <strong>{{this}}</strong>{{#unless @last}}, {{/unless}}
+      {{/each}}
+    </p>
+      </li>
+    </ul>
+    <p1>Description: <strong>{{description}}</strong></p1>
+    <p>Showtimes:
+      {{#each showtimes}}
+        <strong>{{this}}</strong>{{#unless @last}}, {{/unless}}
+      {{/each}}
+    </p>
+  </div>
+</div>
+</body> 
